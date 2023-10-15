@@ -61,8 +61,8 @@ sudo mv composer.phar /usr/local/bin/composer
 # gitからアプリをクローン
 sudo mkdir /var/www
 cd /var/www
-git clone https://github.com/mkylzpu1/TodoList.git
-cd TodoList
+git clone https://github.com/TakuoYamazaki/larave.git
+cd larave
 cp .env.example .env
 composer update
 composer install
@@ -113,7 +113,7 @@ http {
         listen       80;
         listen       [::]:80;
         server_name  _;
-        root         /var/www/TodoList/public;
+        root         /var/www/larave/public;
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
@@ -129,7 +129,7 @@ http {
 #        listen       443 ssl http2;
 #        listen       [::]:443 ssl http2;
 #        server_name  _;
-#        root         /var/www/TodoList/public;
+#        root         /var/www/larave/public;
 #
 #        ssl_certificate "/etc/pki/nginx/server.crt";
 #        ssl_certificate_key "/etc/pki/nginx/private/server.key";
@@ -155,7 +155,7 @@ EOF
 sudo nginx -s reload
 
 # 権限周り
-cd /var/www/TodoList
+cd /var/www/larave
 sudo chmod 777 storage/logs/laravel.log
 sudo chmod -R 777 storage
 sudo chmod -R 775 bootstrap/cache
@@ -168,7 +168,7 @@ php artisan migrate
 # vite
 npm install -D tailwindcss postcss autoprefixer
 
-cd /var/www/TodoList
+cd /var/www/larave
 npm run build
 
 sudo nginx -s reload
