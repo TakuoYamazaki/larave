@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://tko-react-app.s3-website-ap-northeast-1.amazonaws.com'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
